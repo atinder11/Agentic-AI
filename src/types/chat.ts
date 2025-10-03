@@ -3,4 +3,5 @@ export interface Message {
   sender: "user" | "agent";
   text: string;
   timestamp: Date;
+  isPlaceholder?: boolean;
 }

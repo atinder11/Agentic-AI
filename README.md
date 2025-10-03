@@ -43,6 +43,19 @@ export default defineConfig([
 ])
 ```
 
+## Configuring the webhook URL
+
+This app reads the webhook URL from the Vite environment variable `VITE_WEBHOOK_URL`.
+
+Create a file named `.env` or `.env.local` in the project root and add the following line:
+
+```
+VITE_WEBHOOK_URL=https://your-host.example.com/webhook/email
+```
+
+After creating or updating the `.env` file restart the dev server (`npm run dev`). If the env var is not set the app will warn in the console and attempts to send messages will fail and surface an error in the UI.
+
+
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
 ```js
