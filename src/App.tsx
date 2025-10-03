@@ -1,19 +1,17 @@
-import { Container } from "@mui/material";
+// import { Container } from "@mui/material";
 import ChatBox from "./components/ChatBox";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <Container
-      sx={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-        bgcolor: "#e9ebf0"
-      }}
-    >
+    <>
+    <Header/>
+    
       <ChatBox />
-    </Container>
+    
+    </>
+   
+      
   );
 }
 

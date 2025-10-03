@@ -1,4 +1,4 @@
-import { Message } from "../types/chat";
+import type { Message } from "../types/chat";
 
 export const sendWebhookMessage = async (text: string): Promise<Message> => {
   const payload = {
