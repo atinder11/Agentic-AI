@@ -15,14 +15,14 @@ type PinnedItem = { id: string; label: string; icon?: React.ReactElement };
 type ChatItem = { id: string; title: string };
 
 const pinned: PinnedItem[] = [
-  { id: '1', label: 'To use interactive o...', icon: <DescriptionIcon /> },
-  { id: '2', label: 'There are several re...', icon: <DescriptionIcon /> },
-  { id: '3', label: '1234', icon: <DescriptionIcon /> },
-  { id: '4', label: 'Edit', icon: <DescriptionIcon /> },
-  { id: '5', label: 'Testing', icon: <DescriptionIcon /> },
-  { id: '6', label: 'Test', icon: <DescriptionIcon /> },
-  { id: '7', label: '455hehe', icon: <DescriptionIcon /> },
-  { id: '8', label: 'For setting up a pay...', icon: <DescriptionIcon /> },
+  { id: '1', label: 'High Billing...', icon: <DescriptionIcon /> },
+  { id: '2', label: 'Create Service Request...', icon: <DescriptionIcon /> },
+  { id: '3', label: 'Budget Billing', icon: <DescriptionIcon /> },
+  { id: '4', label: 'Payment Arrangement', icon: <DescriptionIcon /> },
+  { id: '5', label: 'Meter Re-Read', icon: <DescriptionIcon /> },
+  { id: '6', label: 'Courtesy Credit', icon: <DescriptionIcon /> },
+  { id: '7', label: 'eBill Enrollment', icon: <DescriptionIcon /> },
+  { id: '8', label: 'enroll my account ...', icon: <DescriptionIcon /> },
 ];
 
 const chats: ChatItem[] = [{ id: 'c1', title: 'Rate increase' }];
@@ -36,7 +36,7 @@ export default function ResponsiveSidebar() {
     <Box role="presentation" sx={{ width: drawerWidth }}>
       <Toolbar sx={{ px: 2 }}>
         <Stack direction="row" spacing={1.5} alignItems="center">
-          <Avatar sx={{ bgcolor: 'primary.main' }}>V</Avatar>
+          <Avatar sx={{ bgcolor: 'primary.main' }}>A</Avatar>
           <Box>
             <Typography variant="subtitle1">Atinder Kumar</Typography>
             <Typography variant="caption" color="text.secondary">
