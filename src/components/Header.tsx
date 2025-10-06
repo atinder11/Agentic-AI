@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Home', 'Biling', 'Outage',"Contact"];
+const pages = ['Home', 'Biling', 'Outage', 'Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
@@ -36,9 +36,16 @@ function Header() {
   };
 
   return (
-    <AppBar position="static">
-      <Container maxWidth={false} >
-        {/* <Container > */}
+    <AppBar
+      position="static"
+      sx={{
+        backgroundColor: '#f9f9f9',
+        color: 'black',
+        boxShadow: 'none', // removes shadow
+        borderBottom: '2px solid #1976d2', // adds a subtle bottom border
+      }}
+    >
+      <Container maxWidth={false}>
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
@@ -93,6 +100,7 @@ function Header() {
               ))}
             </Menu>
           </Box>
+
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
@@ -112,22 +120,23 @@ function Header() {
           >
             Agentic AI
           </Typography>
+
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'black', display: 'block' }}
               >
                 {page}
               </Button>
             ))}
           </Box>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Travis Howard" src="/static/images/avatar/2.jpg" />
-
               </IconButton>
             </Tooltip>
             <Menu
@@ -158,4 +167,5 @@ function Header() {
     </AppBar>
   );
 }
+
 export default Header;
