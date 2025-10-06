@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { useChat } from "../hooks/useChat";
 import ChatInput from "./ChatInput";
 import MessageBubble from "./Message";
+import "./ChatBox.css"
 
 const ChatBox = () => {
   const [snackOpen, setSnackOpen] = useState(false);
@@ -25,8 +26,10 @@ const ChatBox = () => {
   }, [messages]);
 
   return (
+    <div className="chatbox">
+
     <Paper
-      elevation={5}
+      elevation={5} 
       sx={{
          width: { xs: "100%", md:"100%" },
         height: { xs: "80vh", md:"90vh" },
@@ -34,14 +37,15 @@ const ChatBox = () => {
         flexDirection: "column",
         borderRadius: 3,
         overflow: "hidden",
+        // border: "1px solid black",
       }}
     >
-      <Box p={2} bgcolor="primary.main" color="white">
+      {/* <Box p={2} bgcolor="primary.main" color="white">
         <Typography variant="h6" align="center">
           AI Chat
         </Typography>
-      </Box>
-      <Box flex={1} p={2} bgcolor="#f5f7fa" ref={containerRef} sx={{ overflowY: "auto", display: "flex", flexDirection: "column", gap: 1 }}>
+      </Box> */}
+      <Box flex={1} p={2} bgcolor="#f9f9f9" ref={containerRef} sx={{ overflowY: "auto", display: "flex", flexDirection: "column", gap: 1 }}>
         {messages.map((msg) => (
           <MessageBubble key={msg.id} msg={msg} />
         ))}
@@ -56,6 +60,8 @@ const ChatBox = () => {
         </Alert>
       </Snackbar>
     </Paper>
+    </div>
+
   );
 };
 

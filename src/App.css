@@ -1,0 +1,47 @@
+/* Main layout container */
+.app-container {
+  display: flex;
+  height: 100vh;           /* full viewport height */
+  overflow: hidden;        /* prevent page scroll */
+  background-color: #f9f9f9;
+}
+
+/* Left section (Header + ChatBox) */
+.main-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+.header-container{
+    display: flex;
+    height: 13%;
+}
+
+/* ChatBox wrapper — ensures it fills the remaining space below header */
+.chatbox-container {
+  /* flex: 1; */
+  overflow: hidden;
+  padding: 16px;
+  height: 80%;
+  /* border: 2px solid black; */
+}
+
+/* Sidebar on the right */
+.sidebar-section {
+  width: 22%;
+  flex-shrink: 0;
+  border-left: 1px solid #ddd;
+  background-color: #fff;
+}
+
+/* Make it responsive */
+@media (max-width: 900px) {
+  .sidebar-section {
+    display: none; /* hide sidebar on small screens */
+  }
+
+  .chatbox-container {
+    padding: 8px;
+  }
+}
