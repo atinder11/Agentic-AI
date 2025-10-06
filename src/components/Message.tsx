@@ -1,9 +1,31 @@
+import React from "react";
 import { Box, Typography } from "@mui/material";
 import type { Message } from "../types/chat";
 import formatMessageToNodes from "../utils/formatMessage";
 
 const MessageBubble = ({ msg }: { msg: Message }) => {
   const isUser = msg.sender === "user";
+  // Helper to render nodes returned by formatMessageToNodes.
+  // We must avoid wrapping block-level elements (ul, ol, pre, etc.) inside inline elements like <span>
+  const renderNodes = (nodes: React.ReactNode[]) =>
+    nodes.map((n, i) => {
+      if (typeof n === 'string' || typeof n === 'number') {
+        return (
+          <span key={i} style={{ whiteSpace: 'pre-wrap' }}>
+            {n}
+          </span>
+        );
+      }
+      if (React.isValidElement(n)) {
+        // ensure a stable key on element nodes
+        return React.cloneElement(n as React.ReactElement, { key: i });
+      }
+      return (
+        <span key={i} style={{ whiteSpace: 'pre-wrap' }}>
+          {String(n)}
+        </span>
+      );
+    });
   return (
     <Box display="flex" justifyContent={isUser ? "flex-end" : "flex-start"} mb={1}>
       <Box
@@ -29,7 +51,7 @@ const MessageBubble = ({ msg }: { msg: Message }) => {
             }
             return null;
           })() : (
-            <Typography variant="body2">
+            <Typography variant="body2" component="div">
               {
                 // Leading bold (**...**)
                 typeof msg.text === 'string' && msg.text.startsWith('**')
@@ -44,7 +66,7 @@ const MessageBubble = ({ msg }: { msg: Message }) => {
                       return (
                         <>
                           <strong>{boldText}</strong>
-                          {after ? formatMessageToNodes(after).map((n, i) => <span key={i} style={{ whiteSpace: 'pre-wrap' }}>{n}</span>) : null}
+                          {after ? renderNodes(formatMessageToNodes(after)) : null}
                         </>
                       );
                     })()
@@ -59,12 +81,12 @@ const MessageBubble = ({ msg }: { msg: Message }) => {
                       return (
                         <>
                           <em>{first}</em>
-                          {after ? formatMessageToNodes(after).map((n, i) => <span key={i} style={{ whiteSpace: 'pre-wrap' }}>{n}</span>) : null}
+                          {after ? renderNodes(formatMessageToNodes(after)) : null}
                         </>
                       );
                     })() : (
                       // fallback: parse the whole message normally
-                      formatMessageToNodes(msg.text).map((n, i) => <span key={i} style={{ whiteSpace: 'pre-wrap' }}>{n}</span>)
+                      renderNodes(formatMessageToNodes(msg.text))
                     ))
               }
             </Typography>

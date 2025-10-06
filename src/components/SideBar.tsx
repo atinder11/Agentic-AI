@@ -3,7 +3,7 @@ import * as React from 'react';
 import {
   Box, Divider, Drawer, List, ListItem,
   ListItemButton, ListItemIcon, ListItemText, Toolbar,
-  useMediaQuery, useTheme, ListSubheader, Avatar, Stack, Typography
+  ListSubheader, Avatar, Stack, Typography
 } from '@mui/material';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -28,8 +28,6 @@ const pinned: PinnedItem[] = [
 const chats: ChatItem[] = [{ id: 'c1', title: 'Rate increase' }];
 
 export default function ResponsiveSidebar() {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const toggleDrawer = () => setMobileOpen((v) => !v);
