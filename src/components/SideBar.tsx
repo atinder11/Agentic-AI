@@ -3,7 +3,7 @@ import * as React from 'react';
 import {
   Box, Divider, Drawer, List, ListItem,
   ListItemButton, ListItemIcon, ListItemText, Toolbar,
-  useMediaQuery, useTheme, ListSubheader, Avatar, Stack, Typography
+  ListSubheader, Avatar, Stack, Typography
 } from '@mui/material';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -15,14 +15,19 @@ type PinnedItem = { id: string; label: string; icon?: React.ReactElement };
 type ChatItem = { id: string; title: string };
 
 const pinned: PinnedItem[] = [
-  { id: '1', label: 'Billing Querry', icon: <DescriptionIcon /> },
+  { id: '1', label: 'High Billing...', icon: <DescriptionIcon /> },
+  { id: '2', label: 'Create Service Request...', icon: <DescriptionIcon /> },
+  { id: '3', label: 'Budget Billing', icon: <DescriptionIcon /> },
+  { id: '4', label: 'Payment Arrangement', icon: <DescriptionIcon /> },
+  { id: '5', label: 'Meter Re-Read', icon: <DescriptionIcon /> },
+  { id: '6', label: 'Courtesy Credit', icon: <DescriptionIcon /> },
+  { id: '7', label: 'eBill Enrollment', icon: <DescriptionIcon /> },
+  { id: '8', label: 'enroll my account ...', icon: <DescriptionIcon /> },
 ];
 
 const chats: ChatItem[] = [{ id: 'c1', title: 'Budget Billing' }];
 
 export default function ResponsiveSidebar() {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const toggleDrawer = () => setMobileOpen((v) => !v);
@@ -31,7 +36,7 @@ export default function ResponsiveSidebar() {
     <Box role="presentation" sx={{ width: drawerWidth }}>
       <Toolbar sx={{ px: 2 }}>
         <Stack direction="row" spacing={1.5} alignItems="center">
-          <Avatar sx={{ bgcolor: 'primary.main' }}>J</Avatar>
+          <Avatar sx={{ bgcolor: 'primary.main' }}>A</Avatar>
           <Box>
             <Typography variant="subtitle1">John Doe</Typography>
             <Typography variant="caption" color="text.secondary">
