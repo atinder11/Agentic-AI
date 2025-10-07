@@ -25,7 +25,7 @@ const pinned: PinnedItem[] = [
   { id: '8', label: 'enroll my account ...', icon: <DescriptionIcon /> },
 ];
 
-const chats: ChatItem[] = [{ id: 'c1', title: 'Rate increase' }];
+const chats: ChatItem[] = [{ id: 'c1', title: 'Budget Billing' }];
 
 export default function ResponsiveSidebar() {
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -38,9 +38,9 @@ export default function ResponsiveSidebar() {
         <Stack direction="row" spacing={1.5} alignItems="center">
           <Avatar sx={{ bgcolor: 'primary.main' }}>A</Avatar>
           <Box>
-            <Typography variant="subtitle1">Atinder Kumar</Typography>
+            <Typography variant="subtitle1">John Doe</Typography>
             <Typography variant="caption" color="text.secondary">
-              atinder.kumar@rstartec.com
+              john.doe@email.com
             </Typography>
           </Box>
         </Stack>
