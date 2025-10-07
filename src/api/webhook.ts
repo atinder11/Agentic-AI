@@ -39,14 +39,26 @@ export const sendWebhookMessage = async (text: string): Promise<Message> => {
 
   if (!res.ok) throw new Error(`Server error ${res.status}`);
   const data = await res.json();
-  // The webhook may return structured JSON (e.g., results[0].agentReply may be an object)
-  const rawReply = data.results?.[0]?.agentReply;
+
+  // --- Formatting logic similar to Node.js IMAP handler ---
+  let rawReply = data.results?.[0]?.agentReply;
   let formattedText = "";
+
   if (rawReply === null || rawReply === undefined) {
     formattedText = "No reply from agent.";
   } else if (typeof rawReply === 'string') {
-    formattedText = formatPlainToMarkdown(rawReply);
+    try {
+      // Try parsing string as JSON
+      const jsonData = JSON.parse(rawReply);
+      formattedText = Object.entries(jsonData)
+        .map(([key, value]) => `**${key.toUpperCase()}**: ${Array.isArray(value) ? value.join(', ') : value}`)
+        .join("\n");
+    } catch {
+      // If not JSON, treat as plain text
+      formattedText = formatPlainToMarkdown(rawReply);
+    }
   } else if (typeof rawReply === 'object') {
+    // Structured object reply
     formattedText = formatStructuredToMarkdown(rawReply);
   } else {
     formattedText = String(rawReply);

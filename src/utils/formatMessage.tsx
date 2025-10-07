@@ -9,6 +9,8 @@ type Node = React.ReactNode;
 export function formatMessageToNodes(input: string): Node[] {
   if (!input) return [""];
 
+  console.log("Raw Message:", input);
+
   // Normalize some unicode characters that look like asterisks and remove zero-width spaces
   let normalized = input.replace(/\u00A0/g, ' ').replace(/\u200B/g, '');
   // common unicode star-like characters: ✱ ＊ ⋆ ✳ ✴
@@ -95,7 +97,7 @@ export function formatMessageToNodes(input: string): Node[] {
 
     i++;
   }
-  console.log("Formatted nodes:", nodes);
+  console.log("Parsed Nodes:", nodes);
 
   return nodes;
 }

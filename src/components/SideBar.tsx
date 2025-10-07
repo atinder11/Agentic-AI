@@ -15,17 +15,10 @@ type PinnedItem = { id: string; label: string; icon?: React.ReactElement };
 type ChatItem = { id: string; title: string };
 
 const pinned: PinnedItem[] = [
-  { id: '1', label: 'To use interactive o...', icon: <DescriptionIcon /> },
-  { id: '2', label: 'There are several re...', icon: <DescriptionIcon /> },
-  { id: '3', label: '1234', icon: <DescriptionIcon /> },
-  { id: '4', label: 'Edit', icon: <DescriptionIcon /> },
-  { id: '5', label: 'Testing', icon: <DescriptionIcon /> },
-  { id: '6', label: 'Test', icon: <DescriptionIcon /> },
-  { id: '7', label: '455hehe', icon: <DescriptionIcon /> },
-  { id: '8', label: 'For setting up a pay...', icon: <DescriptionIcon /> },
+  { id: '1', label: 'Billing Querry', icon: <DescriptionIcon /> },
 ];
 
-const chats: ChatItem[] = [{ id: 'c1', title: 'Rate increase' }];
+const chats: ChatItem[] = [{ id: 'c1', title: 'Budget Billing' }];
 
 export default function ResponsiveSidebar() {
   const theme = useTheme();
@@ -38,11 +31,11 @@ export default function ResponsiveSidebar() {
     <Box role="presentation" sx={{ width: drawerWidth }}>
       <Toolbar sx={{ px: 2 }}>
         <Stack direction="row" spacing={1.5} alignItems="center">
-          <Avatar sx={{ bgcolor: 'primary.main' }}>V</Avatar>
+          <Avatar sx={{ bgcolor: 'primary.main' }}>J</Avatar>
           <Box>
-            <Typography variant="subtitle1">Atinder Kumar</Typography>
+            <Typography variant="subtitle1">John Doe</Typography>
             <Typography variant="caption" color="text.secondary">
-              atinder.kumar@rstartec.com
+              john.doe@email.com
             </Typography>
           </Box>
         </Stack>
