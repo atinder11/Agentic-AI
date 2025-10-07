@@ -1,4 +1,4 @@
-import { Paper, Box, Snackbar, Alert } from "@mui/material";
+import { Paper, Box, Typography, Snackbar, Alert } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { useChat } from "../hooks/useChat";
 import ChatInput from "./ChatInput";

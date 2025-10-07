@@ -1,6 +1,3 @@
-
-
-
 import { useState } from "react";
 import { Box, TextField, IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
@@ -8,17 +5,9 @@ import SendIcon from "@mui/icons-material/Send";
 const ChatInput = ({ onSend, disabled = false }: { onSend: (text: string) => void; disabled?: boolean }) => {
   const [value, setValue] = useState("");
 
- const normalizeText = (text: string) =>
-    text
-      .replace(/\s+/g, " ")                 // replace multiple spaces with single space
-      .replace(/[^\w\s₹$]/g, "")            // remove all special characters except ₹ and $
-      .trim()
-      .toLowerCase();               // convert to lowercase
-
   const handleSend = () => {
-    const normalized = normalizeText(value);
-    if (normalized) {
-      onSend(normalized);
+    if (value.trim()) {
+      onSend(value);
       setValue("");
     }
   };
@@ -42,4 +31,3 @@ const ChatInput = ({ onSend, disabled = false }: { onSend: (text: string) => voi
 };
 
 export default ChatInput;
-

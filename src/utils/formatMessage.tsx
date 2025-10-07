@@ -97,7 +97,7 @@ export function formatMessageToNodes(input: string): Node[] {
 
     i++;
   }
-  // formatted nodes ready for rendering
+  console.log("Parsed Nodes:", nodes);
 
   return nodes;
 }
