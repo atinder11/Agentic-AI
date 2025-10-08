@@ -10,6 +10,9 @@ import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
+import Logo from "../assets/rstar-logo.png.webp";
+
+
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
@@ -36,18 +39,19 @@ function Header() {
       <Container maxWidth={false}>
         <Toolbar disableGutters>
           {/* Left side - Logo */}
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+          <img src={Logo} alt="Logo" style={{ display: 'block', height: 40, marginRight: 10 }} />
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="a"
             href="#app-bar"
             sx={{
-              mr: 2,
+              mr: 3,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
+              fontFamily: 'sans-serif',
+              fontWeight: 600,
+              // letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}

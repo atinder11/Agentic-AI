@@ -1,9 +1,14 @@
 // src/ResponsiveSidebar.tsx
 import * as React from 'react';
+// import {
+//   Box, Divider, Drawer, List, ListItem,
+//   ListItemButton, ListItemIcon, ListItemText, Toolbar,
+//   useMediaQuery, useTheme, ListSubheader, Avatar, Stack, Typography
+// } from '@mui/material';
 import {
   Box, Divider, Drawer, List, ListItem,
   ListItemButton, ListItemIcon, ListItemText, Toolbar,
-  useMediaQuery, useTheme, ListSubheader, Avatar, Stack, Typography
+   ListSubheader, Avatar, Stack, Typography
 } from '@mui/material';
 import PushPinIcon from '@mui/icons-material/PushPin';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
@@ -21,8 +26,8 @@ const pinned: PinnedItem[] = [
 const chats: ChatItem[] = [{ id: 'c1', title: 'Budget Billing' }];
 
 export default function ResponsiveSidebar() {
-  const theme = useTheme();
-  const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
+  // const theme = useTheme();
+  // const isDesktop = useMediaQuery(theme.breakpoints.up('md'));
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const toggleDrawer = () => setMobileOpen((v) => !v);
@@ -35,7 +40,7 @@ export default function ResponsiveSidebar() {
           <Box>
             <Typography variant="subtitle1">John Doe</Typography>
             <Typography variant="caption" color="text.secondary">
-              john.doe@email.com
+              john.doe@rstartec.com
             </Typography>
           </Box>
         </Stack>
