@@ -11,7 +11,7 @@ const ChatInput = ({ onSend, disabled = false }: { onSend: (text: string) => voi
  const normalizeText = (text: string) =>
     text
       .replace(/\s+/g, " ")                 // replace multiple spaces with single space
-      .replace(/[^\w\s₹$]/g, "")            // remove all special characters except ₹ and $
+      .replace(/[^\w\s₹$?]/g, "")            // remove all special characters except ₹ and $
       .trim()
       .toLowerCase();               // convert to lowercase
 
