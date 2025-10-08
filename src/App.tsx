@@ -1,11 +1,14 @@
 import ChatBox from "./components/ChatBox";
 import Header from "./components/Header";
 import ResponsiveSidebar from "./components/SideBar";
+import ChatLayout from "./layout/chatLayout";
 import "./App.css";
 
 function App() {
   return (
-    <div className="app-container">
+    <>
+    <ChatLayout>
+      <div className="app-container">
       {/* Right section: Sidebar */}
       <div className="sidebar-section">
         <ResponsiveSidebar />
@@ -22,6 +25,9 @@ function App() {
 
       
     </div>
+      </ChatLayout>  
+      </> 
+    
   );
 }
 

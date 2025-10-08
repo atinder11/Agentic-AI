@@ -28,7 +28,7 @@ const ChatInput = ({ onSend, disabled = false }: { onSend: (text: string) => voi
       <TextField
         fullWidth
         size="small"
-        placeholder="Type a message"
+        placeholder="Type your question or explain your issue"
         value={value}
         onChange={e => setValue(e.target.value)}
         onKeyDown={e => e.key === "Enter" && handleSend()}
